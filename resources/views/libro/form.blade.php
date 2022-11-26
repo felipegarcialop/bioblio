@@ -21,11 +21,7 @@
             {{ Form::select('editorial_id',$editoriales, $libro->editorial_id, ['class' => 'form-control' . ($errors->has('editorial_id') ? ' is-invalid' : ''), 'placeholder' => 'Editorial Id']) }}
             {!! $errors->first('editorial_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
-        <div class="form-group">
-            {{ Form::label('clasificacion_id') }}
-            {{ Form::select('clasificacion_id',$clasificaciones ,$libro->clasificacion_id, ['class' => 'form-control' . ($errors->has('clasificacion_id') ? ' is-invalid' : ''), 'placeholder' => 'Clasificacion Id']) }}
-            {!! $errors->first('clasificacion_id', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
+      
 
     </div>
     <div class="box-footer mt20">

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Libro
+    Dclasificacione
 @endsection
 
 @section('content')
@@ -13,11 +13,11 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Libro') }}
+                                {{ __('Dclasificacione') }}
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('libros.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                <a href="{{ route('dclasificaciones.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
                               </div>
@@ -36,30 +36,24 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Nom Libro</th>
-										<th>Codigo</th>
-										<th>Anio Pub</th>
-										<th>Editorial Id</th>
-										
+										<th>Libros Id</th>
+										<th>Clasificaciones Id</th>
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($libros as $libro)
+                                    @foreach ($dclasificaciones as $dclasificacione)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $libro->nom_libro }}</td>
-											<td>{{ $libro->codigo }}</td>
-											<td>{{ $libro->anio_pub }}</td>
-											<td>{{ $libro->editoriale->nom_editorial }}</td>
-											
+											<td>{{ $dclasificacione->libro->nom_libro }}</td>
+											<td>{{ $dclasificacione->clasificacione->desc_clasificacion }}</td>
 
                                             <td>
-                                                <form action="{{ route('libros.destroy',$libro->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('libros.show',$libro->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('libros.edit',$libro->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                <form action="{{ route('dclasificaciones.destroy',$dclasificacione->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('dclasificaciones.show',$dclasificacione->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('dclasificaciones.edit',$dclasificacione->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
@@ -72,7 +66,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $libros->links() !!}
+                {!! $dclasificaciones->links() !!}
             </div>
         </div>
     </div>

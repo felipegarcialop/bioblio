@@ -27,6 +27,7 @@ Route::resource('libros', App\Http\Controllers\LibroController::class)->middlewa
 Route::resource('estantes', App\Http\Controllers\EstanteController::class)->middleware('auth');
 Route::resource('escritores', App\Http\Controllers\EscritoreController::class)->middleware('auth');
 Route::resource('dlibros', App\Http\Controllers\DlibroController::class)->middleware('auth');
+Route::resource('dclasificaciones', App\Http\Controllers\DclasificacioneController::class)->middleware('auth');
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

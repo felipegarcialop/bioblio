@@ -55,6 +55,9 @@
                     <li class="nav-item">
                          <a class="nav-link" href="{{ route('dlibros.index') }}">{{ __('Datos_libros') }}</a>
                     </li>
+                    <li class="nav-item">
+                         <a class="nav-link" href="{{ route('dclasificaciones.index') }}">{{ __('Datos_clasificaciones') }}</a>
+                    </li>
                     </ul>
                     @endif
 

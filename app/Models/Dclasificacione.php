@@ -5,31 +5,25 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Libro
+ * Class Dclasificacione
  *
  * @property $id
- * @property $nom_libro
- * @property $codigo
- * @property $anio_pub
- * @property $editorial_id
- * @property $clasificacion_id
+ * @property $libros_id
+ * @property $clasificaciones_id
  * @property $created_at
  * @property $updated_at
  *
  * @property Clasificacione $clasificacione
- * @property Editoriale $editoriale
+ * @property Libro $libro
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
-class Libro extends Model
+class Dclasificacione extends Model
 {
     
     static $rules = [
-		'nom_libro' => 'required',
-		'codigo' => 'required',
-		'anio_pub' => 'required',
-		'editorial_id' => 'required',
-		
+		'libros_id' => 'required',
+		'clasificaciones_id' => 'required',
     ];
 
     protected $perPage = 20;
@@ -39,20 +33,23 @@ class Libro extends Model
      *
      * @var array
      */
-    protected $fillable = ['nom_libro','codigo','anio_pub','editorial_id'];
+    protected $fillable = ['libros_id','clasificaciones_id'];
 
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    
-    
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function editoriale()
+    public function clasificacione()
     {
-        return $this->hasOne('App\Models\Editoriale', 'id', 'editorial_id');
+        return $this->hasOne('App\Models\Clasificacione', 'id', 'clasificaciones_id');
+    }
+    
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function libro()
+    {
+        return $this->hasOne('App\Models\Libro', 'id', 'libros_id');
     }
     
 

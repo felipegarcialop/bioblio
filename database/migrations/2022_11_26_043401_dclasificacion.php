@@ -14,19 +14,15 @@ return new class extends Migration
     public function up()
     {
         //
-        Schema::create('libros', function (Blueprint $table) {
+        Schema::create('dclasificaciones', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->bigIncrements('id');
-            $table->string('nom_libro');
-            $table->Integer('codigo');
-            $table->Integer('anio_pub');
-            $table->bigInteger('editorial_id')->unsigned();
-            
-            
+            $table->bigInteger('libros_id')->unsigned();
+            $table->bigInteger('clasificaciones_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('editorial_id')->references('id')->on('editoriales')->onDelete('cascade');
-           
+            $table->foreign('libros_id')->references('id')->on('libros')->onDelete('cascade');
+            $table->foreign('clasificaciones_id')->references('id')->on('clasificaciones')->onDelete('cascade');
 
         });
     }
