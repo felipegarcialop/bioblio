@@ -48,7 +48,7 @@ class ClasificacioneController extends Controller
         $clasificacione = Clasificacione::create($request->all());
 
         return redirect()->route('clasificaciones.index')
-            ->with('success', 'Clasificacione created successfully.');
+            ->with('success', 'La clasificación fue creada con éxito.');
     }
 
     /**
@@ -91,7 +91,7 @@ class ClasificacioneController extends Controller
         $clasificacione->update($request->all());
 
         return redirect()->route('clasificaciones.index')
-            ->with('success', 'Clasificacione updated successfully');
+            ->with('success', 'La clasificación ha sido editada con éxito');
     }
 
     /**
@@ -104,6 +104,6 @@ class ClasificacioneController extends Controller
         $clasificacione = Clasificacione::find($id)->delete();
 
         return redirect()->route('clasificaciones.index')
-            ->with('success', 'Clasificacione deleted successfully');
+            ->with('success', 'Clasificación eliminada con éxito');
     }
 }

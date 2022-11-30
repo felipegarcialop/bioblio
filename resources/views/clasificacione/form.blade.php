@@ -2,13 +2,13 @@
     <div class="box-body">
         
         <div class="form-group">
-            {{ Form::label('desc_clasificacion') }}
+            {{ Form::label('Clasificación') }}
             {{ Form::text('desc_clasificacion', $clasificacione->desc_clasificacion, ['class' => 'form-control' . ($errors->has('desc_clasificacion') ? ' is-invalid' : ''), 'placeholder' => 'Desc Clasificacion']) }}
             {!! $errors->first('desc_clasificacion', '<div class="invalid-feedback">:message</div>') !!}
         </div>
 
     </div>
     <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Añadir</button>
     </div>
 </div>

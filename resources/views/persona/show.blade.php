@@ -11,30 +11,30 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Persona</span>
+                            <span class="card-title">Mostrar Persona</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('personas.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('personas.index') }}"> Regresar</a>
                         </div>
                     </div>
 
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>Nom:</strong>
+                            <strong>Nombre:</strong>
                             {{ $persona->nom }}
                         </div>
                         <div class="form-group">
-                            <strong>Ap:</strong>
+                            <strong>Apellido Paterno:</strong>
                             {{ $persona->ap }}
                         </div>
                         <div class="form-group">
-                            <strong>Am:</strong>
+                            <strong>Apellido Materno:</strong>
                             {{ $persona->am }}
                         </div>
                         <div class="form-group">
-                            <strong>Tpersonas Id:</strong>
-                            {{ $persona->tpersonas_id }}
+                            <strong>Tipo de Persona:</strong>
+                            {{ $persona->tpersona->desc_tipo }}
                         </div>
 
                     </div>

@@ -13,12 +13,12 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Tpersona') }}
+                                {{ __('Tipo de personas') }}
                             </span>
 
                              <div class="float-right">
                                 <a href="{{ route('tpersonas.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                  {{ __('Añadir tipo de persona') }}
                                 </a>
                               </div>
                         </div>
@@ -34,9 +34,9 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
+                                        <th>Numero de registro</th>
                                         
-										<th>Desc Tipo</th>
+										<th>Tipo de persona</th>
 
                                         <th></th>
                                     </tr>

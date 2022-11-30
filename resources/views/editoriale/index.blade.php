@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Editoriale
+    Editoriales
 @endsection
 
 @section('content')
@@ -13,12 +13,12 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Editoriale') }}
+                                {{ __('Editoriales') }}
                             </span>
 
                              <div class="float-right">
                                 <a href="{{ route('editoriales.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                  {{ __('Crear Nueva editorial') }}
                                 </a>
                               </div>
                         </div>
@@ -34,7 +34,7 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
+                                        <th>Numero</th>
                                         
 										<th>Nom Editorial</th>
 
@@ -50,11 +50,11 @@
 
                                             <td>
                                                 <form action="{{ route('editoriales.destroy',$editoriale->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('editoriales.show',$editoriale->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('editoriales.edit',$editoriale->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('editoriales.show',$editoriale->id) }}"><i class="fa fa-fw fa-eye"></i> Visualizar</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('editoriales.edit',$editoriale->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar </button>
                                                 </form>
                                             </td>
                                         </tr>

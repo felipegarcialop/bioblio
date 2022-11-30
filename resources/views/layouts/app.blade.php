@@ -31,9 +31,7 @@
                     <!-- Left Side Of Navbar -->
                     @if(Auth::Check())
                     <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                         <a class="nav-link" href="{{ route('tpersonas.index') }}">{{ __('Tipo_personas') }}</a>
-                    </li>
+                    
                     <li class="nav-item">
                          <a class="nav-link" href="{{ route('personas.index') }}">{{ __('Personas') }}</a>
                     </li>
@@ -52,12 +50,7 @@
                     <li class="nav-item">
                          <a class="nav-link" href="{{ route('escritores.index') }}">{{ __('Escritores') }}</a>
                     </li>
-                    <li class="nav-item">
-                         <a class="nav-link" href="{{ route('dlibros.index') }}">{{ __('Datos_libros') }}</a>
-                    </li>
-                    <li class="nav-item">
-                         <a class="nav-link" href="{{ route('dclasificaciones.index') }}">{{ __('Datos_clasificaciones') }}</a>
-                    </li>
+                    
                     </ul>
                     @endif
 

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Create Tpersona
+    Añadir tipo de persona
 @endsection
 
 @section('content')

@@ -11,33 +11,33 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Libro</span>
+                            <span class="card-title">Visualizar Libro</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('libros.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('libros.index') }}"> Regresar</a>
                         </div>
                     </div>
 
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>Nom Libro:</strong>
+                            <strong>Nombre del Libro:</strong>
                             {{ $libro->nom_libro }}
                         </div>
                         <div class="form-group">
-                            <strong>Codigo:</strong>
+                            <strong>Código:</strong>
                             {{ $libro->codigo }}
                         </div>
                         <div class="form-group">
-                            <strong>Anio Pub:</strong>
+                            <strong>Año de Publicación:</strong>
                             {{ $libro->anio_pub }}
                         </div>
                         <div class="form-group">
-                            <strong>Editorial Id:</strong>
+                            <strong>Editorial :</strong>
                             {{ $libro->editorial_id }}
                         </div>
                         <div class="form-group">
-                            <strong>Clasificacion Id:</strong>
+                            <strong>Clasificacion :</strong>
                             {{ $libro->clasificacion_id }}
                         </div>
 

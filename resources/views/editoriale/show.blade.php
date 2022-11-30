@@ -11,17 +11,17 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Editoriale</span>
+                            <span class="card-title">Visualizar Editorial</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('editoriales.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('editoriales.index') }}"> Regresar</a>
                         </div>
                     </div>
 
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>Nom Editorial:</strong>
+                            <strong>Nombre de la Editorial:</strong>
                             {{ $editoriale->nom_editorial }}
                         </div>
 
