@@ -21,10 +21,12 @@ return new class extends Migration
             $table->Integer('codigo');
             $table->Integer('anio_pub');
             $table->bigInteger('editorial_id')->unsigned();
+            $table->bigInteger('clasificaciones_id')->unsigned();
             
             
             $table->timestamps();
 
+            $table->foreign('clasificaciones_id')->references('id')->on('clasificaciones')->onDelete('cascade');
             $table->foreign('editorial_id')->references('id')->on('editoriales')->onDelete('cascade');
            
 

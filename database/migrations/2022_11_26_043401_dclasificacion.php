@@ -21,8 +21,7 @@ return new class extends Migration
             $table->bigInteger('clasificaciones_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('libros_id')->references('id')->on('libros')->onDelete('cascade');
-            $table->foreign('clasificaciones_id')->references('id')->on('clasificaciones')->onDelete('cascade');
+            
 
         });
     }
