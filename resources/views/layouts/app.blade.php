@@ -31,7 +31,13 @@
                     <!-- Left Side Of Navbar -->
                     @if(Auth::Check())
                     <ul class="navbar-nav me-auto">
-                    
+                    <li class="nav-item">
+                         <a class="nav-link" href="/roles">Roles</a>
+                    </li>
+                    <li class="nav-item">
+                         <a class="nav-link" href="/usuarios">Usuarios</a>
+                    </li>
+
                     <li class="nav-item">
                          <a class="nav-link" href="{{ route('personas.index') }}">{{ __('Personas') }}</a>
                     </li>

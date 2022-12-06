@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RolController;
+use App\Http\Controllers\UsuarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,15 +21,22 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::resource('tpersonas', App\Http\Controllers\TpersonaController::class)->middleware('auth');
-Route::resource('personas', App\Http\Controllers\PersonaController::class)->middleware('auth');
-Route::resource('clasificaciones', App\Http\Controllers\ClasificacioneController::class)->middleware('auth');
-Route::resource('editoriales', App\Http\Controllers\EditorialeController::class)->middleware('auth');
-Route::resource('libros', App\Http\Controllers\LibroController::class)->middleware('auth');
-Route::resource('estantes', App\Http\Controllers\EstanteController::class)->middleware('auth');
-Route::resource('escritores', App\Http\Controllers\EscritoreController::class)->middleware('auth');
-Route::resource('dlibros', App\Http\Controllers\DlibroController::class)->middleware('auth');
-Route::resource('dclasificaciones', App\Http\Controllers\DclasificacioneController::class)->middleware('auth');
+
+Route::group(['middleware'=>['auth']],function(){
+    Route::resource('tpersonas', App\Http\Controllers\TpersonaController::class);
+    Route::resource('personas', App\Http\Controllers\PersonaController::class);
+    Route::resource('clasificaciones', App\Http\Controllers\ClasificacioneController::class);
+    Route::resource('editoriales', App\Http\Controllers\EditorialeController::class);
+    Route::resource('libros', App\Http\Controllers\LibroController::class);
+    Route::resource('estantes', App\Http\Controllers\EstanteController::class);
+    Route::resource('escritores', App\Http\Controllers\EscritoreController::class);
+    Route::resource('dlibros', App\Http\Controllers\DlibroController::class);
+    Route::resource('dclasificaciones', App\Http\Controllers\DclasificacioneController::class);
+    Route::resource('roles', RolController::class);
+    Route::resource('usuarios', UsuarioController::class);
+});
+
+
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
