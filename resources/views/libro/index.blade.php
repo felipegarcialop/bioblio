@@ -17,11 +17,9 @@
                             </span>
 
                              <div class="float-right">
-                                @can('crear-libro')
                                 <a href="{{ route('libros.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Añadir nuevo libro') }}
+                                  {{ __('Create New') }}
                                 </a>
-                                @endcan
                               </div>
                         </div>
                     </div>
@@ -36,13 +34,13 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>Número</th>
+                                        <th>No</th>
                                         
-										<th>Nombre Libro</th>
-										<th>Código</th>
-										<th>Año de Publicación</th>
-										<th>Editorial </th>
-										
+										<th>Nom Libro</th>
+										<th>Anio Pub</th>
+										<th>Editorial Id</th>
+										<th>Clasificaciones Id</th>
+										<th>Escritores Id</th>
 
                                         <th></th>
                                     </tr>
@@ -51,24 +49,21 @@
                                     @foreach ($libros as $libro)
                                         <tr>
                                             <td>{{ ++$i }}</td>
+                                            
 											<td>{{ $libro->nom_libro }}</td>
-											<td>{{ $libro->codigo }}</td>
 											<td>{{ $libro->anio_pub }}</td>
-											<td>{{ $libro->editoriale->nom_editorial }}</td>
-											
+											<td>{{ $libro->editorial_id }}</td>
+											<td>{{ $libro->clasificaciones_id }}</td>
+											<td>{{ $libro->escritores_id }}</td>
 
                                             <td>
-                                                @can('ver-libro')
-                                                <a class="btn btn-sm btn-primary " href="{{ route('libros.show',$libro->id) }}"><i class="fa fa-fw fa-eye"></i> Visualizar</a>@endcan
-                                                @can('editar-libro')
-                                                <a class="btn btn-sm btn-success" href="{{ route('libros.edit',$libro->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>@endcan
-                                                @can('borrar-libro')
                                                 <form action="{{ route('libros.destroy',$libro->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('libros.show',$libro->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('libros.edit',$libro->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
                                                 </form>
-                                                @endcan
                                             </td>
                                         </tr>
                                     @endforeach

@@ -11,34 +11,34 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Visualizar Libro</span>
+                            <span class="card-title">Show Libro</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('libros.index') }}"> Regresar</a>
+                            <a class="btn btn-primary" href="{{ route('libros.index') }}"> Back</a>
                         </div>
                     </div>
 
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>Nombre del Libro:</strong>
+                            <strong>Nom Libro:</strong>
                             {{ $libro->nom_libro }}
                         </div>
                         <div class="form-group">
-                            <strong>Código:</strong>
-                            {{ $libro->codigo }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Año de Publicación:</strong>
+                            <strong>Anio Pub:</strong>
                             {{ $libro->anio_pub }}
                         </div>
                         <div class="form-group">
-                            <strong>Editorial :</strong>
+                            <strong>Editorial Id:</strong>
                             {{ $libro->editorial_id }}
                         </div>
                         <div class="form-group">
-                            <strong>Clasificacion :</strong>
-                            {{ $libro->clasificacion_id }}
+                            <strong>Clasificaciones Id:</strong>
+                            {{ $libro->clasificaciones_id }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Escritores Id:</strong>
+                            {{ $libro->escritores_id }}
                         </div>
 
                     </div>

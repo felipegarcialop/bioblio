@@ -9,15 +9,17 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property $id
  * @property $nom_libro
- * @property $codigo
  * @property $anio_pub
  * @property $editorial_id
- * @property $clasificacion_id
+ * @property $clasificaciones_id
+ * @property $escritores_id
  * @property $created_at
  * @property $updated_at
  *
  * @property Clasificacione $clasificacione
+ * @property Dlibro[] $dlibros
  * @property Editoriale $editoriale
+ * @property Estante[] $estantes
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
@@ -26,10 +28,10 @@ class Libro extends Model
     
     static $rules = [
 		'nom_libro' => 'required',
-		'codigo' => 'required',
 		'anio_pub' => 'required',
 		'editorial_id' => 'required',
-		
+		'clasificaciones_id' => 'required',
+		'escritores_id' => 'required',
     ];
 
     protected $perPage = 20;
@@ -39,13 +41,24 @@ class Libro extends Model
      *
      * @var array
      */
-    protected $fillable = ['nom_libro','codigo','anio_pub','editorial_id'];
+    protected $fillable = ['nom_libro','anio_pub','editorial_id','clasificaciones_id','escritores_id'];
 
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
+    public function clasificacione()
+    {
+        return $this->hasOne('App\Models\Clasificacione', 'id', 'clasificaciones_id');
+    }
     
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function dlibros()
+    {
+        return $this->hasMany('App\Models\Dlibro', 'libro_id', 'id');
+    }
     
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
@@ -53,6 +66,14 @@ class Libro extends Model
     public function editoriale()
     {
         return $this->hasOne('App\Models\Editoriale', 'id', 'editorial_id');
+    }
+    
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function estantes()
+    {
+        return $this->hasMany('App\Models\Estante', 'libro_id', 'id');
     }
     
 

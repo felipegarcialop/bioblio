@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Libro;
-
-use App\Models\Editoriale;
 use Illuminate\Http\Request;
 
 /**
@@ -13,14 +11,6 @@ use Illuminate\Http\Request;
  */
 class LibroController extends Controller
 {
-    function __construct()
-    {
-         $this->middleware('permission:ver-libro|crear-libro|editar-libro|borrar-libro', ['only' => ['index']]);
-         $this->middleware('permission:crear-libro', ['only' => ['create','store']]);
-         $this->middleware('permission:editar-libro', ['only' => ['edit','update']]);
-         $this->middleware('permission:borrar-libro', ['only' => ['destroy']]);
-         $this->middleware('permission:ver-libro', ['only' => ['show']]);
-    }
     /**
      * Display a listing of the resource.
      *
@@ -42,10 +32,7 @@ class LibroController extends Controller
     public function create()
     {
         $libro = new Libro();
-        
-        $editoriales=Editoriale::pluck('nom_editorial','id');
-
-        return view('libro.create', compact('libro','editoriales'));
+        return view('libro.create', compact('libro'));
     }
 
     /**
@@ -58,10 +45,10 @@ class LibroController extends Controller
     {
         request()->validate(Libro::$rules);
 
-        $libro = Libro::firstOrCreate($request->all());
+        $libro = Libro::create($request->all());
 
         return redirect()->route('libros.index')
-            ->with('success', 'Libro creado éxitosamente.');
+            ->with('success', 'Libro created successfully.');
     }
 
     /**
@@ -86,9 +73,8 @@ class LibroController extends Controller
     public function edit($id)
     {
         $libro = Libro::find($id);
-       
-        $editoriales=Editoriale::pluck('nom_editorial','id');
-        return view('libro.edit', compact('libro','editoriales'));
+
+        return view('libro.edit', compact('libro'));
     }
 
     /**
@@ -105,7 +91,7 @@ class LibroController extends Controller
         $libro->update($request->all());
 
         return redirect()->route('libros.index')
-            ->with('success', 'Libro actuzalizado éxitosamente');
+            ->with('success', 'Libro updated successfully');
     }
 
     /**
@@ -118,6 +104,6 @@ class LibroController extends Controller
         $libro = Libro::find($id)->delete();
 
         return redirect()->route('libros.index')
-            ->with('success', 'Libro eliminado éxitosamente');
+            ->with('success', 'Libro deleted successfully');
     }
 }
