@@ -67,6 +67,10 @@ class Libro extends Model
     {
         return $this->hasOne('App\Models\Editoriale', 'id', 'editorial_id');
     }
+    public function escritore()
+    {
+        return $this->hasOne('App\Models\Escritore', 'id', 'escritores_id');
+    }
     
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

@@ -52,9 +52,9 @@
                                             
 											<td>{{ $libro->nom_libro }}</td>
 											<td>{{ $libro->anio_pub }}</td>
-											<td>{{ $libro->editorial_id }}</td>
-											<td>{{ $libro->clasificaciones_id }}</td>
-											<td>{{ $libro->escritores_id }}</td>
+											<td>{{ $libro->editoriale->nom_editorial}}</td>
+											<td>{{ $libro->clasificacione->desc_clasificacion }}</td>
+											<td>{{ $libro->escritore->nombre }}</td>
 
                                             <td>
                                                 <form action="{{ route('libros.destroy',$libro->id) }}" method="POST">

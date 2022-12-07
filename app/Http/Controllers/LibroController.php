@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Libro;
+use App\Models\Clasificacione;
+use App\Models\Editoriale;
+use App\Models\Dlibro;
+use App\Models\Escritore;
+
 use Illuminate\Http\Request;
 
 /**
@@ -32,7 +37,11 @@ class LibroController extends Controller
     public function create()
     {
         $libro = new Libro();
-        return view('libro.create', compact('libro'));
+        
+        $clasificaciones=Clasificacione::pluck('desc_clasificacion','id');
+        $editoriales=Editoriale::pluck('nom_editorial','id');
+        $escritores=Escritore::pluck('nombre','id');
+        return view('libro.create', compact('libro','editoriales','clasificaciones','escritores'));
     }
 
     /**
