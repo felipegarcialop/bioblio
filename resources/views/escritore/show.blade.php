@@ -24,14 +24,6 @@
                             <strong>Nombre:</strong>
                             {{ $escritore->nombre }}
                         </div>
-                        <div class="form-group">
-                            <strong>Ap:</strong>
-                            {{ $escritore->ap }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Am:</strong>
-                            {{ $escritore->am }}
-                        </div>
 
                     </div>
                 </div>

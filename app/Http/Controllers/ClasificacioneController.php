@@ -11,11 +11,20 @@ use Illuminate\Http\Request;
  */
 class ClasificacioneController extends Controller
 {
+    function __construct()
+    {
+         $this->middleware('permission:ver-clasificacion|crear-clasificacion|editar-clasificaion', ['only' => ['index']]);
+         $this->middleware('permission:crear-clasificacion', ['only' => ['create','store']]);
+         $this->middleware('permission:editar-clasificaion', ['only' => ['edit','update']]);
+         $this->middleware('permission:borrar-clasificacion', ['only' => ['destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
+     
     public function index()
     {
         $clasificaciones = Clasificacione::paginate();

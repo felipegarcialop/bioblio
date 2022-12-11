@@ -17,9 +17,11 @@
                             </span>
 
                              <div class="float-right">
+                                @can('crear-estante')
                                 <a href="{{ route('estantes.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
+                                @endcan
                               </div>
                         </div>
                     </div>
@@ -36,8 +38,7 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Persona Id</th>
-                                    
+										<th>User Id</th>
 										<th>Libro Id</th>
 										<th>Fecha Pres</th>
 										<th>Fecha Dev</th>
@@ -50,19 +51,24 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $estante->persona->nom}}</td>
-                                            
+											<td>{{ $estante->user->name }}</td>
 											<td>{{ $estante->libro->nom_libro }}</td>
 											<td>{{ $estante->fecha_pres }}</td>
 											<td>{{ $estante->fecha_dev }}</td>
 
                                             <td>
                                                 <form action="{{ route('estantes.destroy',$estante->id) }}" method="POST">
+                                                    @can('ver-estante')
                                                     <a class="btn btn-sm btn-primary " href="{{ route('estantes.show',$estante->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
+                                                    @endcan
+                                                    @can('editar-estante')
                                                     <a class="btn btn-sm btn-success" href="{{ route('estantes.edit',$estante->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                    @endcan
+                                                    @can('borrar-estante')
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                    @endcan
                                                 </form>
                                             </td>
                                         </tr>

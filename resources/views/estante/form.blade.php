@@ -1,15 +1,14 @@
 <div class="box box-info padding-1">
     <div class="box-body">
         
-        
         <div class="form-group">
-            {{ Form::label('persona_id') }}
-            {{ Form::select('persona_id',$personas ,$estante->persona_id, ['class' => 'form-control' . ($errors->has('persona_id') ? ' is-invalid' : ''), 'placeholder' => 'Persona Id']) }}
-            {!! $errors->first('persona_id', '<div class="invalid-feedback">:message</div>') !!}
+            {{ Form::label('user_id') }}
+            {{ Form::select('user_id', $users,$estante->user_id, ['class' => 'form-control' . ($errors->has('user_id') ? ' is-invalid' : ''), 'placeholder' => 'User Id']) }}
+            {!! $errors->first('user_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('libro_id') }}
-            {{ Form::select('libro_id',$libros ,$estante->libro_id, ['class' => 'form-control' . ($errors->has('libro_id') ? ' is-invalid' : ''), 'placeholder' => 'Libro Id']) }}
+            {{ Form::select('libro_id', $libros,$estante->libro_id, ['class' => 'form-control' . ($errors->has('libro_id') ? ' is-invalid' : ''), 'placeholder' => 'Libro Id']) }}
             {!! $errors->first('libro_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">

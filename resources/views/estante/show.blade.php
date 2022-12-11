@@ -21,8 +21,8 @@
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>Persona Id:</strong>
-                            {{ $estante->persona_id }}
+                            <strong>User Id:</strong>
+                            {{ $estante->user_id }}
                         </div>
                         <div class="form-group">
                             <strong>Libro Id:</strong>

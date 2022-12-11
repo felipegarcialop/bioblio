@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
  * Class Estante
  *
  * @property $id
- * @property $persona_id
+ * @property $user_id
  * @property $libro_id
  * @property $fecha_pres
  * @property $fecha_dev
@@ -16,7 +16,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property $updated_at
  *
  * @property Libro $libro
- * @property Persona $persona
+ * @property User $user
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
@@ -24,7 +24,7 @@ class Estante extends Model
 {
     
     static $rules = [
-		'persona_id' => 'required',
+		'user_id' => 'required',
 		'libro_id' => 'required',
 		'fecha_pres' => 'required',
 		'fecha_dev' => 'required',
@@ -37,7 +37,7 @@ class Estante extends Model
      *
      * @var array
      */
-    protected $fillable = ['persona_id','libro_id','fecha_pres','fecha_dev'];
+    protected $fillable = ['user_id','libro_id','fecha_pres','fecha_dev'];
 
 
     /**
@@ -51,9 +51,9 @@ class Estante extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function persona()
+    public function user()
     {
-        return $this->hasOne('App\Models\Persona', 'id', 'persona_id');
+        return $this->hasOne('App\Models\User', 'id', 'user_id');
     }
     
 

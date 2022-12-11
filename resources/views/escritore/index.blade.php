@@ -17,9 +17,11 @@
                             </span>
 
                              <div class="float-right">
+                                @can('crear-autor')
                                 <a href="{{ route('escritores.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
+                                @endcan
                               </div>
                         </div>
                     </div>
@@ -37,8 +39,6 @@
                                         <th>No</th>
                                         
 										<th>Nombre</th>
-										<th>Ap</th>
-										<th>Am</th>
 
                                         <th></th>
                                     </tr>
@@ -49,16 +49,20 @@
                                             <td>{{ ++$i }}</td>
                                             
 											<td>{{ $escritore->nombre }}</td>
-											<td>{{ $escritore->ap }}</td>
-											<td>{{ $escritore->am }}</td>
 
                                             <td>
                                                 <form action="{{ route('escritores.destroy',$escritore->id) }}" method="POST">
+                                                    @can('ver-autor')
                                                     <a class="btn btn-sm btn-primary " href="{{ route('escritores.show',$escritore->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
+                                                    @endcan
+                                                    @can('editar-autor')
                                                     <a class="btn btn-sm btn-success" href="{{ route('escritores.edit',$escritore->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                    @endcan
+                                                    @can('borrar-autor')
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                    @endcan
                                                 </form>
                                             </td>
                                         </tr>

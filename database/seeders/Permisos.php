@@ -36,22 +36,26 @@ class Permisos extends Seeder
             'editar-usuario',
             'borrar-usuario',
 
-
+            //permisos para autor 
             'ver-autor',
             'crear-autor',
             'editar-autor',
             'borrar-autor',
+
+            //permisos para clasificaiones
 
             'ver-clasificacion',
             'crear-clasificacion',
             'editar-clasificaion',
             'borrar-clasificacion',
 
+            //permisos para editoriales
             'ver-editorial',
             'crear-editorial',
             'editar-editorial',
             'borrar-editorial',
 
+            //permisos paara estantes
             'ver-estante',
             'crear-estante',
             'editar-estante',

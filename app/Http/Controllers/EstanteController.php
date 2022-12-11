@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Estante;
-use App\Models\Persona;
 use App\Models\Libro;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 /**
@@ -13,6 +13,13 @@ use Illuminate\Http\Request;
  */
 class EstanteController extends Controller
 {
+    function __construct()
+    {
+         $this->middleware('permission:ver-estante|crear-estante|editar-estante', ['only' => ['index']]);
+         $this->middleware('permission:crear-estante', ['only' => ['create','store']]);
+         $this->middleware('permission:editar-estante', ['only' => ['edit','update']]);
+         $this->middleware('permission:borrar-estante', ['only' => ['destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -34,9 +41,9 @@ class EstanteController extends Controller
     public function create()
     {
         $estante = new Estante();
-        $libros= Libro::pluck('nom_libro','id');
-        $personas= Persona::pluck('nom','id');
-        return view('estante.create', compact('estante','libros','personas'));
+        $libros=Libro::pluck('nom_libro','id');
+        $users=User::pluck('name','id');
+        return view('estante.create', compact('estante','libros','users'));
     }
 
     /**
@@ -77,9 +84,8 @@ class EstanteController extends Controller
     public function edit($id)
     {
         $estante = Estante::find($id);
-        $libros= Libro::pluck('nom_libro','id');
-        $personas= Persona::pluck('nom','id');
-        return view('estante.edit', compact('estante','libros','personas'));
+
+        return view('estante.edit', compact('estante'));
     }
 
     /**

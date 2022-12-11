@@ -16,6 +16,13 @@ use Illuminate\Http\Request;
  */
 class LibroController extends Controller
 {
+    function __construct()
+    {
+         $this->middleware('permission:ver-libro|crear-libro|editar-libro', ['only' => ['index']]);
+         $this->middleware('permission:crear-libro', ['only' => ['create','store']]);
+         $this->middleware('permission:editar-libro', ['only' => ['edit','update']]);
+         $this->middleware('permission:borrar-libro', ['only' => ['destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -69,6 +76,7 @@ class LibroController extends Controller
     public function show($id)
     {
         $libro = Libro::find($id);
+        
 
         return view('libro.show', compact('libro'));
     }
@@ -82,8 +90,11 @@ class LibroController extends Controller
     public function edit($id)
     {
         $libro = Libro::find($id);
+        $clasificaciones=Clasificacione::pluck('desc_clasificacion','id');
+        $editoriales=Editoriale::pluck('nom_editorial','id');
+        $escritores=Escritore::pluck('nombre','id');
 
-        return view('libro.edit', compact('libro'));
+        return view('libro.edit', compact('libro','editoriales','clasificaciones','escritores'));
     }
 
     /**

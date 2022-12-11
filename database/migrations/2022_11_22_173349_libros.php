@@ -28,7 +28,7 @@ return new class extends Migration
 
             $table->foreign('clasificaciones_id')->references('id')->on('clasificaciones')->onDelete('cascade');
             $table->foreign('editorial_id')->references('id')->on('editoriales')->onDelete('cascade');
-           $table->foreign('editorial_id')->references('id')->on('editoriales')->onDelete('cascade');
+           
            
            
            

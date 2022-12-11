@@ -18,8 +18,7 @@ return new class extends Migration
             $table->engine = 'InnoDB';
             $table->bigIncrements('id');
             $table->string('nombre');
-            $table->string('ap');
-            $table->string('am');
+            
             
             $table->timestamps();
         });

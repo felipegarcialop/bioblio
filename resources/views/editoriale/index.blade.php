@@ -17,9 +17,11 @@
                             </span>
 
                              <div class="float-right">
+                                @can('crear-editorial')
                                 <a href="{{ route('editoriales.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Crear Nueva editorial') }}
                                 </a>
+                                @endcan
                               </div>
                         </div>
                     </div>
@@ -50,11 +52,17 @@
 
                                             <td>
                                                 <form action="{{ route('editoriales.destroy',$editoriale->id) }}" method="POST">
+                                                    @can('ver-editorial')
                                                     <a class="btn btn-sm btn-primary " href="{{ route('editoriales.show',$editoriale->id) }}"><i class="fa fa-fw fa-eye"></i> Visualizar</a>
+                                                    @endcan
+                                                    @can('editar-editorial')
                                                     <a class="btn btn-sm btn-success" href="{{ route('editoriales.edit',$editoriale->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
+                                                    @endcan
+                                                    @can('borrar-editorial')
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar </button>
+                                                    @endcan
                                                 </form>
                                             </td>
                                         </tr>

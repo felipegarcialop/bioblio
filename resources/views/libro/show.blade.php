@@ -30,15 +30,15 @@
                         </div>
                         <div class="form-group">
                             <strong>Editorial Id:</strong>
-                            {{ $libro->editorial_id }}
+                            {{ $libro->editoriale->nom_editorial}}
                         </div>
                         <div class="form-group">
                             <strong>Clasificaciones Id:</strong>
-                            {{ $libro->clasificaciones_id }}
+                            {{ $libro->clasificacione->desc_clasificacion}}
                         </div>
                         <div class="form-group">
                             <strong>Escritores Id:</strong>
-                            {{ $libro->escritores_id }}
+                            {{ $libro->escritore->nombre}}
                         </div>
 
                     </div>

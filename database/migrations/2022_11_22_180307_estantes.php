@@ -17,7 +17,7 @@ return new class extends Migration
         Schema::create('estantes', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->bigIncrements('id');
-            $table->bigInteger('persona_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('libro_id')->unsigned();
             $table->date('fecha_pres');
             $table->date('fecha_dev');
@@ -25,8 +25,9 @@ return new class extends Migration
             
             $table->timestamps();
 
-            $table->foreign('persona_id')->references('id')->on('personas')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('libro_id')->references('id')->on('libros')->onDelte('cascade');
+            
         });
     }
 
