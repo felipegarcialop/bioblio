@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Libro
+    Ejemplare
 @endsection
 
 @section('content')
@@ -13,15 +13,13 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Libro') }}
+                                {{ __('Ejemplare') }}
                             </span>
 
                              <div class="float-right">
-                                @can('crear-libro')
-                                <a href="{{ route('libros.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                <a href="{{ route('ejemplares.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
-                                @endcan
                               </div>
                         </div>
                     </div>
@@ -38,41 +36,27 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Nom Libro</th>
-										<th>Anio Pub</th>
-										<th>Editorial Id</th>
-										<th>Clasificaciones Id</th>
-										<th>Escritores Id</th>
-										<th>Copias</th>
+										<th>Libro Id</th>
+										<th>Numjemplares</th>
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($libros as $libro)
+                                    @foreach ($ejemplares as $ejemplare)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $libro->nom_libro }}</td>
-											<td>{{ $libro->anio_pub }}</td>
-											<td>{{ $libro->editoriale->nom_editorial }}</td>
-											<td>{{ $libro->clasificacione->desc_clasificacion }}</td>
-											<td>{{ $libro->escritore->nombre}}</td>
-											<td>{{ $libro->Copias }}</td>
+											<td>{{ $ejemplare->libro->nom_libro }}</td>
+											<td>{{ $ejemplare->numjemplares }}</td>
 
                                             <td>
-                                                <form action="{{ route('libros.destroy',$libro->id) }}" method="POST">
-                                                    @can('ver-libro')
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('libros.show',$libro->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    @endcan
-                                                    @can('editar-libro')
-                                                    <a class="btn btn-sm btn-success" href="{{ route('libros.edit',$libro->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
-                                                    @endcan
-                                                    @can('borrar-libro')
+                                                <form action="{{ route('ejemplares.destroy',$ejemplare->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('ejemplares.show',$ejemplare->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('ejemplares.edit',$ejemplare->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
-                                                    @endcan
                                                 </form>
                                             </td>
                                         </tr>
@@ -82,7 +66,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $libros->links() !!}
+                {!! $ejemplares->links() !!}
             </div>
         </div>
     </div>

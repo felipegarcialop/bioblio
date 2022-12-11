@@ -13,7 +13,7 @@
         </div>
         <div class="form-group">
             {{ Form::label('editorial_id') }}
-            {{ Form::select('editorial_id', $editoriales,$libro->editorial_id, ['class' => 'form-control' . ($errors->has('editorial_id') ? ' is-invalid' : ''), 'placeholder' => 'Editorial Id']) }}
+            {{ Form::select('editorial_id',$editoriales ,$libro->editorial_id, ['class' => 'form-control' . ($errors->has('editorial_id') ? ' is-invalid' : ''), 'placeholder' => 'Editorial Id']) }}
             {!! $errors->first('editorial_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
@@ -25,6 +25,11 @@
             {{ Form::label('escritores_id') }}
             {{ Form::select('escritores_id', $escritores,$libro->escritores_id, ['class' => 'form-control' . ($errors->has('escritores_id') ? ' is-invalid' : ''), 'placeholder' => 'Escritores Id']) }}
             {!! $errors->first('escritores_id', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
+        <div class="form-group">
+            {{ Form::label('Copias') }}
+            {{ Form::text('Copias', $libro->Copias, ['class' => 'form-control' . ($errors->has('Copias') ? ' is-invalid' : ''), 'placeholder' => 'Copias']) }}
+            {!! $errors->first('Copias', '<div class="invalid-feedback">:message</div>') !!}
         </div>
 
     </div>

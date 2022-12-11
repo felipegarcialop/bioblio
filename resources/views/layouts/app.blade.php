@@ -52,6 +52,9 @@
                     <li class="nav-item">
                          <a class="nav-link" href="{{ route('escritores.index') }}">{{ __('Escritores') }}</a>
                     </li>
+                    <li class="nav-item">
+                         <a class="nav-link" href="{{ route('ejemplares.index') }}">{{ __('ejemplares') }}</a>
+                    </li>
                     
                     </ul>
                     @endif

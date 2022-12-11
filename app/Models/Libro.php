@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property $editorial_id
  * @property $clasificaciones_id
  * @property $escritores_id
+ * @property $Copias
  * @property $created_at
  * @property $updated_at
  *
@@ -32,6 +33,7 @@ class Libro extends Model
 		'editorial_id' => 'required',
 		'clasificaciones_id' => 'required',
 		'escritores_id' => 'required',
+		'Copias' => 'required',
     ];
 
     protected $perPage = 20;
@@ -41,7 +43,7 @@ class Libro extends Model
      *
      * @var array
      */
-    protected $fillable = ['nom_libro','anio_pub','editorial_id','clasificaciones_id','escritores_id'];
+    protected $fillable = ['nom_libro','anio_pub','editorial_id','clasificaciones_id','escritores_id','Copias'];
 
 
     /**
@@ -71,6 +73,7 @@ class Libro extends Model
     {
         return $this->hasOne('App\Models\Escritore', 'id', 'escritores_id');
     }
+    
     
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

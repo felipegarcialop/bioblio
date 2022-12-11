@@ -32,8 +32,10 @@ Route::group(['middleware'=>['auth']],function(){
     Route::resource('escritores', App\Http\Controllers\EscritoreController::class);
     Route::resource('dlibros', App\Http\Controllers\DlibroController::class);
     Route::resource('dclasificaciones', App\Http\Controllers\DclasificacioneController::class);
+    Route::resource('ejemplares', App\Http\Controllers\EjemplareController::class);
     Route::resource('roles', RolController::class);
     Route::resource('usuarios', UsuarioController::class);
+
 });
 
 

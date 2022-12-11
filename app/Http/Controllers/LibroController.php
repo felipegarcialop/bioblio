@@ -4,10 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Libro;
 use App\Models\Clasificacione;
+use App\Models\Escritore;
 use App\Models\Editoriale;
 use App\Models\Dlibro;
-use App\Models\Escritore;
-
 use Illuminate\Http\Request;
 
 /**
@@ -44,7 +43,6 @@ class LibroController extends Controller
     public function create()
     {
         $libro = new Libro();
-        
         $clasificaciones=Clasificacione::pluck('desc_clasificacion','id');
         $editoriales=Editoriale::pluck('nom_editorial','id');
         $escritores=Escritore::pluck('nombre','id');
@@ -76,9 +74,11 @@ class LibroController extends Controller
     public function show($id)
     {
         $libro = Libro::find($id);
-        
+        $clasificaciones=Clasificacione::pluck('desc_clasificacion','id');
+        $editoriales=Editoriale::pluck('nom_editorial','id');
+        $escritores=Escritore::pluck('nombre','id');
 
-        return view('libro.show', compact('libro'));
+        return view('libro.show', compact('libro','editoriales','clasificaciones','escritores'));
     }
 
     /**
@@ -90,11 +90,8 @@ class LibroController extends Controller
     public function edit($id)
     {
         $libro = Libro::find($id);
-        $clasificaciones=Clasificacione::pluck('desc_clasificacion','id');
-        $editoriales=Editoriale::pluck('nom_editorial','id');
-        $escritores=Escritore::pluck('nombre','id');
 
-        return view('libro.edit', compact('libro','editoriales','clasificaciones','escritores'));
+        return view('libro.edit', compact('libro'));
     }
 
     /**
