@@ -3,7 +3,7 @@
         
         <div class="form-group">
             {{ Form::label('user_id') }}
-            {{ Form::select('user_id', $users,$estante->user_id, ['class' => 'form-control' . ($errors->has('user_id') ? ' is-invalid' : ''), 'placeholder' => 'User Id']) }}
+            {{ Form::select('user_id', $users ,$estante->user_id, ['class' => 'form-control' . ($errors->has('user_id') ? ' is-invalid' : ''), 'placeholder' => 'User Id']) }}
             {!! $errors->first('user_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
